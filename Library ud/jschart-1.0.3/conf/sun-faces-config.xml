@@ -1,0 +1,601 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Overlay 1.2//EN"
+  "http://java.sun.com/dtd/web-facesconfig-overlay_1_2.dtd">
+
+<faces-config>
+
+    <component>
+        <description>Chart Creation</description>
+        <description xml:lang="ru">Создание графиков и диаграмм</description>
+        <display-name>Chart</display-name>
+        <display-name xml:lang="ru">Диаграмма</display-name>
+        <component-type>net.sf.jschart.Chart</component-type>
+
+        <property>
+            <description>Chart title</description>
+            <description xml:lang="ru">Заголовок диаграммы</description>
+            <display-name>Title</display-name>
+            <display-name xml:lang="ru">Заголовок</display-name>
+            <property-name>title</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>""</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart subtitle</description>
+            <description xml:lang="ru">Подзаголовок диаграммы</description>
+            <display-name>Subtitle</display-name>
+            <display-name xml:lang="ru">Подзаголовок</display-name>
+            <property-name>subtitle</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>null</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart type (bar,pie,line...)</description>
+            <description xml:lang="ru">Вид диаграммы</description>
+            <display-name>Type</display-name>
+            <display-name xml:lang="ru">Вид</display-name>
+            <property-name>type</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>"bar"</default-value>
+                <editor-class>
+                    net.sf.jschart.util.ChartTypePropertyEditor
+                </editor-class>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart Height</description>
+            <description xml:lang="ru">Высота диаграммы</description>
+            <display-name>Height</display-name>
+            <display-name xml:lang="ru">Высота</display-name>
+            <property-name>height</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>300</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart Width</description>
+            <description xml:lang="ru">Ширина диаграммы</description>
+            <display-name>Width</display-name>
+            <display-name xml:lang="ru">Ширина</display-name>
+            <property-name>width</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>400</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart Depth</description>
+            <description xml:lang="ru">Глубина диаграммы</description>
+            <display-name>Depth</display-name>
+            <display-name xml:lang="ru">Глубина</display-name>
+            <property-name>depth</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>15</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>X label</description>
+            <description xml:lang="ru">Надпись по оси X</description>
+            <display-name>X label</display-name>
+            <display-name xml:lang="ru">Надпись по оси X</display-name>
+            <property-name>xlabel</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>""</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Y label</description>
+            <description xml:lang="ru">Надпись по оси Y</description>
+            <display-name>Y label</display-name>
+            <display-name xml:lang="ru">Надпись по оси Y</display-name>
+            <property-name>ylabel</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>""</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Label format</description>
+            <description xml:lang="ru">Формат надписи</description>
+            <display-name>Label format</display-name>
+            <display-name xml:lang="ru">Формат надписи</display-name>
+            <property-name>labelFormat</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>null</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Category label angle</description>
+            <description xml:lang="ru">Угол поворота текста надписи категории</description>
+            <display-name>Category label angle</display-name>
+            <display-name xml:lang="ru">Угол надписи категории</display-name>
+            <property-name>labelAngle</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>0</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Legend label format</description>
+            <description xml:lang="ru">Формат надписи пояснения</description>
+            <display-name>Legend label format</display-name>
+            <display-name xml:lang="ru">Формат надписи пояснения</display-name>
+            <property-name>legendLabelFormat</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>null</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Tooltip format</description>
+            <description xml:lang="ru">Формат всплывающей надписи</description>
+            <display-name>Tooltip format</display-name>
+            <display-name xml:lang="ru">Формат всплывающей надписи</display-name>
+            <property-name>tooltipFormat</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>null</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Is the X axis tooltip has date format?</description>
+            <description xml:lang="ru">Имеет ли ось X формат даты всплывающей надписи</description>
+            <display-name>X date tooltip format</display-name>
+            <display-name xml:lang="ru">Имеет ли ось X формат даты всплывающей надписи</display-name>
+            <property-name>tooltipXDate</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>false</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Is the Y axis tooltip has date format?</description>
+            <description xml:lang="ru">Имеет ли ось Y формат даты всплывающей надписи</description>
+            <display-name>Y date tooltip format</display-name>
+            <display-name xml:lang="ru">Имеет ли ось Y формат даты всплывающей надписи</display-name>
+            <property-name>tooltipYDate</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>false</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Legend position</description>
+            <description xml:lang="ru">Позиция пояснения</description>
+            <display-name>Legend position</display-name>
+            <display-name xml:lang="ru">Позиция пояснения</display-name>
+            <property-name>legendPosition</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>"bottom"</default-value>
+                <editor-class>
+                    net.sf.jschart.util.PositionPropertyEditor
+                </editor-class>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Date tick value</description>
+            <description xml:lang="ru">Шаг для вывода даты</description>
+            <display-name>Date tick</display-name>
+            <display-name xml:lang="ru">Шаг даты</display-name>
+            <property-name>dateTick</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>"auto"</default-value>
+                <editor-class>
+                    net.sf.jschart.util.DateTickPropertyEditor
+                </editor-class>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Date tick count</description>
+            <description xml:lang="ru">Длина шага для вывода даты</description>
+            <display-name>Date tick count</display-name>
+            <display-name xml:lang="ru">Длина шага даты</display-name>
+            <property-name>dateTickCount</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>1</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart orientation</description>
+            <description xml:lang="ru">Ориентация диаграммы</description>
+            <display-name>Orientation</display-name>
+            <display-name xml:lang="ru">Ориентация</display-name>
+            <property-name>orientation</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>"vertical"</default-value>
+                <editor-class>
+                    net.sf.jschart.util.OrientationPropertyEditor
+                </editor-class>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart background color</description>
+            <description xml:lang="ru">Цвет фона диаграммы</description>
+            <display-name>Backround</display-name>
+            <display-name xml:lang="ru">Цвет фона</display-name>
+            <property-name>background</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>"white"</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart colors</description>
+            <description xml:lang="ru">Цвета диаграммы</description>
+            <display-name>colors</display-name>
+            <display-name xml:lang="ru">Цвета</display-name>
+            <property-name>colors</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>""</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart output Date Format</description>
+            <description xml:lang="ru">Формат вывода даты на диаграмме</description>
+            <display-name>Date Format</display-name>
+            <display-name xml:lang="ru">Формат вывода даты</display-name>
+            <property-name>dateFormat</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>null</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart has Interval Marker</description>
+            <description xml:lang="ru">График имеет выделенный интервал. Мин-значение, Макс-значение, цвет</description>
+            <display-name>Interval Marker</display-name>
+            <display-name xml:lang="ru">Выделенный интервал</display-name>
+            <property-name>intervalMarker</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>""</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Datasource. Must be PieDataset, CategoryDataset
+            or XYDataset derived objects</description>
+            <description xml:lang="ru">Источник данных. Должен быть объектом
+            унаследованным от классов PieDataset, CategoryDataset или XYDataset</description>
+            <display-name>Datasource</display-name>
+            <display-name xml:lang="ru">Источник данных</display-name>
+            <property-name>datasource</property-name>
+            <property-class>org.jfree.data.general.Dataset</property-class>
+            <property-extension>
+                <category>DATA</category>
+                <is-bindable>false</is-bindable>
+                <read-only>false</read-only>
+                <tag-attribute>false</tag-attribute>
+                <editor-class>com.sun.rave.propertyeditors.SelectOneDomainEditor</editor-class>
+                <named-value>
+                    <name>com.sun.rave.propertyeditors.DOMAIN_CLASS</name>
+                    <expression>loadClass("com.sun.rave.propertyeditors.domains.InstanceVariableDomain")</expression>
+                </named-value>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Is 3D chart</description>
+            <description xml:lang="ru">Трёхмерная диаграмма</description>
+            <display-name>Is 3D</display-name>
+            <display-name xml:lang="ru">Трёхмерная</display-name>
+            <property-name>chart3d</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Antialias</description>
+            <description xml:lang="ru">Сглаживание</description>
+            <display-name>Antialias</display-name>
+            <display-name xml:lang="ru">Сглаживание</display-name>
+            <property-name>antialias</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart Border width</description>
+            <description xml:lang="ru">Ширина рамки диаграммы</description>
+            <display-name>Border</display-name>
+            <display-name xml:lang="ru">Ширина рамки</display-name>
+            <property-name>border</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>0</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart outline</description>
+            <description xml:lang="ru">Обрамление</description>
+            <display-name>Outline</display-name>
+            <display-name xml:lang="ru">Обрамление</display-name>
+            <property-name>outline</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>false</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart has legend</description>
+            <description xml:lang="ru">Пояснения к диаграмме</description>
+            <display-name>Legend</display-name>
+            <display-name xml:lang="ru">Пояснения</display-name>
+            <property-name>legend</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart has labels</description>
+            <description xml:lang="ru">Метки на диаграмме</description>
+            <display-name>Labels</display-name>
+            <display-name xml:lang="ru">Метки на диаграмме</display-name>
+            <property-name>label</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart has tooltips</description>
+            <description xml:lang="ru">Диаграмма имеет всплывающую подсказку</description>
+            <display-name>Tooltips</display-name>
+            <display-name xml:lang="ru">Всплывающая подсказка</display-name>
+            <property-name>tooltips</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart Include Zero axis value</description>
+            <description xml:lang="ru">Включать нулевое значение на диаграмме</description>
+            <display-name>Include Zero</display-name>
+            <display-name xml:lang="ru">Включать нулевое значение</display-name>
+            <property-name>includeZero</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart has Vertical Date Ticks</description>
+            <description xml:lang="ru">Вертикальные метки времени на диаграмме</description>
+            <display-name>Vertical Date Ticks</display-name>
+            <display-name xml:lang="ru">Вертикальные метки времени</display-name>
+            <property-name>verticalDateTicks</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>false</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart has Visible Shapes</description>
+            <description xml:lang="ru">Отображение меток значений на диаграмме</description>
+            <display-name>Visible Shapes</display-name>
+            <display-name xml:lang="ru">Отображение меток</display-name>
+            <property-name>visibleShapes</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>true</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Chart Alpha</description>
+            <description xml:lang="ru">Прозрачность диаграммы</description>
+            <display-name>Alpha</display-name>
+            <display-name xml:lang="ru">Прозрачность</display-name>
+            <property-name>alpha</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>100</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Pie Chart starting angle</description>
+            <description xml:lang="ru">Начальный угол для нарезки</description>
+            <display-name>Start angle</display-name>
+            <display-name xml:lang="ru">Начальный угол</display-name>
+            <property-name>startAngle</property-name>
+            <property-class>int</property-class>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <default-value>90</default-value>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>Use JSF PhaseListener for sending image instead of JSP Servlet.</description>
+            <description xml:lang="ru">Использовать PhaseListener для отсылки изображения вместо JSP Servlet.</description>
+            <display-name>Use PhaseListener</display-name>
+            <display-name xml:lang="ru">Использовать PhaseListener</display-name>
+            <property-name>usePhaseListener</property-name>
+            <property-class>boolean</property-class>
+            <property-extension>
+                <category>INTERNAL</category>
+                <default-value>false</default-value>
+                <is-bindable>false</is-bindable>
+                <is-expert>true</is-expert>
+                <tag-attribute>false</tag-attribute>
+            </property-extension>
+        </property>
+
+        <!-- Standard HTML component properties -->
+        <property>
+            <description>CSS style attribute.</description>
+            <description xml:lang="ru">Атрибут стиля CSS.</description>
+            <property-name>style</property-name>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <!-- FIXME *not* portable, but useful PropertyEditor -->
+                <!-- Note: this PropertyEditor will be removed in a future release -->
+                <editor-class>
+                    com.sun.jsfcl.std.css.CssStylePropertyEditor
+                </editor-class>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <property>
+            <description>CSS "class" attribute.</description>
+            <description xml:lang="ru">Атрибут "класса" CSS.</description>
+            <property-name>styleClass</property-name>
+            <property-extension>
+                <category>APPEARANCE</category>
+                <!-- FIXME *not* a portable PropertyEditor and may be removed -->
+                <!-- in a future release -->
+                <editor-class>
+                    com.sun.rave.propertyeditors.StringPropertyEditor
+                </editor-class>
+                <is-bindable>true</is-bindable>
+            </property-extension>
+        </property>
+
+        <component-extension>
+            <base-component-type>javax.faces.Output</base-component-type>
+            <component-family>net.sf.jschart.Chart</component-family>
+            <renderer-type>net.sf.jschart.Chart</renderer-type>
+        </component-extension>
+    </component>
+  
+    <render-kit>
+        <renderer>
+            <description>Render a Chart.</description>
+            <description xml:lang="ru">Рисовать Диаграмму.</description>
+            <component-family>net.sf.jschart.Chart</component-family>
+            <renderer-type>net.sf.jschart.Chart</renderer-type>
+
+            <renderer-extension>
+                <instance-name>chart</instance-name>
+                <is-container>false</is-container>
+                <renders-children>false</renders-children>
+                <!-- The tag-name attribute in the BeanInfo BeanDescriptor tells
+                the IDE to persist in markup instead of Java source -->
+                <tag-name>chart</tag-name>
+                <taglib-prefix>@taglib-prefix@</taglib-prefix>
+                <taglib-uri>@taglib-uri@</taglib-uri>
+            </renderer-extension>
+        </renderer>
+
+    </render-kit>
+
+</faces-config>

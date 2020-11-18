@@ -1,0 +1,7 @@
+Extension-Name: @package@
+Specification-Title: @project-artifact@
+Specification-Vendor: net.sf.jschart
+Specification-Version: @version@
+Implementation-Title: @project-artifact@
+Implementation-Vendor: net.sf.jschart
+Implementation-Version: @version@

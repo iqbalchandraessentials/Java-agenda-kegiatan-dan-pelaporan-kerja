@@ -1,0 +1,15 @@
+public void isiCombo(){
+        try {
+            Statement st;
+            ResultSet rs;
+            String sql ="SELECT * FROM tb_guru";
+            st=conn.createStatement();
+            rs=st.executeQuery(sql);
+            while(rs.next()){
+                cbNmGur.addItem(rs.getString("id_guru"));
+            }
+            rs.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "gagal "+e);
+        }
+    }

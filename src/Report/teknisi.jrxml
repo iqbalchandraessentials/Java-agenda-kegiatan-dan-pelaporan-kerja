@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="560618c0-e980-447b-a4d3-729fb1181ccc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="kop" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     teknisi.`id_teknisi` AS teknisi_id_teknisi,
+     teknisi.`nama_teknisi` AS teknisi_nama_teknisi,
+     teknisi.`religion` AS teknisi_religion,
+     teknisi.`gender` AS teknisi_gender,
+     teknisi.`place_of_bhirt` AS teknisi_place_of_bhirt,
+     teknisi.`date_of_bhirt` AS teknisi_date_of_bhirt,
+     teknisi.`date_of_join` AS teknisi_date_of_join,
+     teknisi.`addres` AS teknisi_addres,
+     teknisi.`phone` AS teknisi_phone,
+     teknisi.`email` AS teknisi_email
+FROM
+     `teknisi` teknisi]]>
+	</queryString>
+	<field name="teknisi_id_teknisi" class="java.lang.String"/>
+	<field name="teknisi_nama_teknisi" class="java.lang.String"/>
+	<field name="teknisi_religion" class="java.lang.String"/>
+	<field name="teknisi_gender" class="java.lang.String"/>
+	<field name="teknisi_place_of_bhirt" class="java.lang.String"/>
+	<field name="teknisi_date_of_bhirt" class="java.lang.String"/>
+	<field name="teknisi_date_of_join" class="java.lang.String"/>
+	<field name="teknisi_addres" class="java.lang.String"/>
+	<field name="teknisi_phone" class="java.lang.String"/>
+	<field name="teknisi_email" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement uuid="ef178fa7-e1c4-4b9a-ab9d-82bc48f3f162" x="298" y="11" width="211" height="68"/>
+				<imageExpression><![CDATA[$P{kop}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2cd81a02-bce5-4693-9a2b-6f3a3a7bef11" x="321" y="0" width="166" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORT TECHNICIAN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="274e53ea-575c-44c7-8787-dc475d93ae8b" x="41" y="17" width="80" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b48074a1-c7db-4810-b31f-50b675a4cdb0" x="121" y="17" width="100" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f726e665-472f-43f4-a796-b39b4165bb75" x="221" y="17" width="63" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RELIGION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9356e820-16d1-4bf4-bd58-04ea6a60c3db" x="284" y="17" width="60" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[GENDER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="90eed261-7fb5-42b3-89ff-7f8acb4c406b" x="344" y="17" width="84" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[P.O.B]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b3f6ce0f-2d94-4e82-9b6c-621e7b776276" x="428" y="17" width="81" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[BHIRTDAY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="16d1731b-ea02-4afb-ac11-6ebc95127163" x="509" y="17" width="76" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DATE O. JOIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f27f44a-d9e3-48c7-9d3b-e173da32e477" x="585" y="17" width="180" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ADDRES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2fdc9337-6645-4d73-8d05-47e053f506ff" x="41" y="0" width="80" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_id_teknisi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5342b2fc-3588-410e-9097-97e686d67b87" x="121" y="0" width="100" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_nama_teknisi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="07ec7d6c-c7aa-4369-9bc9-bfd1f1a5de48" x="221" y="0" width="63" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_religion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b8052b8a-f43a-431d-b474-741b637a2d13" x="284" y="0" width="60" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="abf89299-4a1c-4a29-82a4-a7605cdc79ba" x="344" y="0" width="84" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_place_of_bhirt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb443214-91bb-4b7d-8b03-4fc7f46dc5ce" x="428" y="0" width="81" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_date_of_bhirt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e070daa4-465b-41de-a2ed-e1c0de457e7d" x="509" y="0" width="76" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_date_of_join}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cd0314ee-c87b-45fd-98b4-e0ea34101e92" x="585" y="0" width="180" height="20"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{teknisi_addres}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d4505622-f964-4b66-a4b5-5a81402e91e8" x="777" y="0" width="25" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

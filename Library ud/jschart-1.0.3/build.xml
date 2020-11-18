@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<project name="jschart" default="complib" basedir=".">
+
+  <!-- ===================== Initialize Property Values ==================== -->
+
+
+  <!-- Initialize property values -->
+  <property file="build.properties"/>
+
+
+  <!-- Build defaults -->
+  <property name="build.home"         value="${basedir}/build"/>
+  <property name="runtime.dst"        value="${build.home}/classes"/>
+  <property name="design.dst"         value="${build.home}/design"/>
+  <property name="dist.home"          value="${basedir}/dist"/>
+  <property name="src.home"           value="${basedir}/src"/>
+  <property name="design.src"         value="${basedir}/designtime"/>
+  <property name="conf.dst"           value="${build.home}/conf"/>
+
+  <property name="project.title"      value="JSC chart components"/>
+  <property name="project.version"    value="1.0.3"/>
+  <property name="project.package"    value="net.sf.jschart"/>
+  <property name="project.artifact"   value="jschart"/>
+  <property name="project.artifact.version"
+    value="${project.artifact}-${project.version}"/>
+  <property name="project.taglib.package" value="${project.package}.taglib"/>
+  <property name="project.taglib.prefix" value="jschart"/>
+  <property name="project.taglib.uri"
+    value="http://net.sf.jschart/${project.artifact}"/>
+
+
+  <!-- Compile defaults -->
+  <property name="compile.debug"       value="true"/>
+  <property name="compile.deprecation" value="false"/>
+  <property name="compile.optimize"    value="true"/>
+
+
+  <!-- Dependency libraries -->
+  <property name="jsf-api.jar"
+	value="${jsf.home}/jsf-api.jar"/>
+  <property name="jsf-impl.jar"
+	value="${jsf.home}/jsf-impl.jar"/>
+  <property name="commons-beanutils.jar"
+	value="${jsf.home}/commons-beanutils.jar"/>
+  <property name="commons-collections.jar"
+	value="${jsf.home}/commons-collections.jar"/>
+  <property name="commons-digester.jar"
+	value="${jsf.home}/commons-digester.jar"/>
+  <property name="commons-logging.jar"
+	value="${jsf.home}/commons-logging.jar"/>
+  <property name="servlet-jsp-api.jar"
+	value="${jsp.home}/org-netbeans-modules-servletjspapi.jar"/>
+  <property name="designtime.jar"
+	value="${vw.modules}/org-netbeans-modules-visualweb-designtime.jar"/>
+  <property name="webui.jar"
+	value="${vw.modules}/org-netbeans-modules-visualweb-webui.jar"/>
+  <property name="dataprovider.jar"
+	value="${vw.modules}/org-netbeans-modules-visualweb-dataprovider.jar"/>
+  <property name="dataprovider-dt.jar"
+	value="${vw.modules}/org-netbeans-modules-visualweb-dataprovider-dt.jar"/>
+  <property name="propertyeditors.jar"
+	value="${vw.modules}/org-netbeans-modules-visualweb-propertyeditors.jar"/>
+  <property name="tracing.jar"
+        value="${vw.modules}/org-netbeans-modules-visualweb-extension-openide.jar"/>
+  <property name="jfreechart.jar"
+	value="${jfreechart.home}/jfreechart-1.0.9.jar"/>
+  <property name="jcommon.jar"
+	value="${jfreechart.home}/jcommon-1.0.12.jar"/>
+  <!-- Classpaths -->
+  <path id="compile.rt.path">
+    <pathelement location="${runtime.dst}"/>
+    <pathelement location="${jsf-api.jar}"/>
+    <pathelement location="${jsf-impl.jar}"/>
+    <pathelement location="${servlet-jsp-api.jar}"/>
+    <pathelement location="${commons-logging.jar}"/>
+    <pathelement location="${jfreechart.jar}"/>
+    <pathelement location="${jcommon.jar}"/>
+    <pathelement location="${dataprovider.jar}"/>
+    <pathelement location="${dataprovider-dt.jar}"/>
+    <pathelement location="${propertyeditors.jar}"/>
+    <pathelement location="${webui.jar}"/>
+  </path>
+
+  <path id="compile.dt.path">
+    <pathelement location="${designtime.jar}"/>
+    <pathelement location="${tracing.jar}"/>
+    <pathelement location="${ide.home}/org-openide-explorer.jar"/>
+  </path>
+
+  <!-- ========================= Maintenance =============================== -->
+
+
+  <target name="clean"
+    description="Clean all build and dist directories">
+
+    <delete dir="${build.home}"/>
+    <delete dir="${dist.home}"/>
+  </target>
+
+
+  <target name="init">
+    <!-- Check that destination dir is valid -->
+    <condition property="vw-property-set">
+      <isset property="vw.home"/>
+    </condition>
+    <fail unless="vw-property-set">
+      Property 'vw.home must be set. See build.properties for more info.
+    </fail>
+    <condition property="vw-property-valid">
+      <available file="${vw.modules}" type="dir"/>
+    </condition>
+    <fail unless="vw-property-valid">
+      Property 'vw.home' must point to a valid VisualWeb root directory containing a directory named '$${vm.home}/visualweb1'.
+See build.properties file for more info.
+    </fail>
+
+    <echo message="---------- ${project.title} ----------"/>
+    <filter token="title"             value="${project.title}"/>
+    <filter token="package"           value="${project.package}"/>
+    <filter token="version"           value="${project.version}"/>
+    <filter token="project-artifact"  value="${project.artifact}"/>
+    <filter token="taglib-prefix"     value="${project.taglib.prefix}"/>
+    <filter token="taglib-uri"        value="${project.taglib.uri}"/>
+  </target>
+
+
+  <target name="prepare" depends="init">
+    <mkdir dir="${build.home}"/>
+    <mkdir dir="${runtime.dst}"/>
+    <mkdir dir="${build.home}/complib"/>
+    <mkdir dir="${build.home}/conf"/>
+    <mkdir dir="${build.home}/lib"/>
+    <mkdir dir="${build.home}/javadoc"/>
+    <mkdir dir="${design.dst}"/>
+    <mkdir dir="${dist.home}"/>
+  </target>
+
+
+  <!-- ======================== Main Targets ============================ -->
+
+  <target name="compile-rt" depends="prepare"
+    description="Compile runtime library classes">
+
+    <!-- Compile Java Sources -->
+    <javac destdir="${runtime.dst}"
+      source="1.5" target="1.5"
+      debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+      optimize="${compile.optimize}">
+      <!-- compilerarg value="-Xlint:unchecked"/ -->
+      <classpath refid="compile.rt.path"/>
+      <include name="net/**"/>
+      <src path="${src.home}"/>
+    </javac>
+
+    <!-- Copy non-Java Sources -->
+    <copy           todir="${runtime.dst}">
+      <fileset        dir="${src.home}">
+        <exclude     name="**/CVS/**"/>
+        <exclude     name="**/*.java"/>
+        <exclude     name="**/.nbattrs"/>
+        <include     name="net/**"/>
+      </fileset>
+    </copy>
+
+    <!-- Filter library configuration files -->
+    <copy todir="${conf.dst}" filtering="on">
+      <fileset dir="conf"/>
+    </copy>
+
+  </target>
+
+  <target name="jar-rt" depends="compile-rt"
+    description="Create runtime jar">
+
+    <copy todir="${runtime.dst}/META-INF">
+      <fileset dir="${conf.dst}">
+        <include name="faces-config.xml"/>
+        <include name="*.tld"/>
+      </fileset>
+    </copy>
+
+    <jar jarfile="${build.home}/lib/${project.artifact}.jar"
+      basedir="${runtime.dst}"
+      manifest="${conf.dst}/manifest-rt.mf"/>
+  </target>
+
+  <target name="compile-dt" depends="compile-rt"
+    description="Compile design time support classes">
+
+    <!-- Compile all design time classes -->
+    <javac
+      destdir="${design.dst}"
+      debug="${compile.debug}"
+      deprecation="${compile.deprecation}"
+      optimize="${compile.optimize}"
+      source="1.5" target="1.5">
+      <!-- compilerarg value="-Xlint:deprecation"/ -->
+      <!-- compilerarg value="-Xlint:unchecked"/ -->
+      <src path="${design.src}"/>
+      <classpath refid="compile.dt.path"/>
+      <classpath refid="compile.rt.path"/>
+    </javac>
+
+    <!-- Copy non-java resources -->
+    <copy todir="${design.dst}">
+      <fileset dir="${design.src}">
+        <exclude name="**/*.java"/>
+        <exclude name="**/.nbattrs"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="jar-dt" depends="compile-dt"
+    description="Create design time">
+    <jar jarfile="${build.home}/lib/${project.artifact}-dt.jar"
+      basedir="${build.home}/design"/>
+  </target>
+
+  <target name="zip-web-resources">
+    <copy todir="${build.home}/resources/${project.package}">
+      <fileset dir="webresources"/>
+    </copy>
+    <zip destfile="${build.home}/complib/web-resources.zip">
+      <fileset dir="${build.home}">
+        <include name="resources/**"/>
+      </fileset>
+    </zip>
+  </target>
+
+  <!-- ======================= Distribution Targets ======================== -->
+
+
+  <target name="javadoc"
+    description="Generate library Javadoc">
+
+    <javadoc
+      sourcepath="${src.home}"
+      packagenames="${project.package}.*"
+      destdir="${build.home}/javadoc"
+      private="false"
+      windowtitle="${project.title} (Version ${project.version})"
+      doctitle="${project.title} (Version ${project.version})"
+      bottom="net.sf.jschart">
+      <classpath refid="compile.rt.path"/>
+    </javadoc>
+  </target>
+
+  <target name="complib-install" depends="complib">
+    <copy todir="${rave.home}/samples/">
+      <fileset dir="${dist.home}">
+        <include name="*.complib"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="complib" depends="jar-rt, jar-dt, zip-web-resources, javadoc"
+    description="Create library package, AKA a complib">
+    <!-- Create a complib image to later jar up -->
+
+    <!-- Files containing the contents of the complib -->
+    <copy todir="${build.home}/complib/META-INF">
+      <fileset dir="${build.home}/conf">
+        <!-- Files that specify contents of complib -->
+        <include name="complib-config.xml"/>
+        <include name="ComplibBundle*.properties*"/>
+      </fileset>
+    </copy>
+
+    <!-- Runtime and any designtime jars -->
+    <copy todir="${build.home}/complib">
+      <fileset dir="${build.home}/lib">
+        <include name="${project.artifact}.jar"/>
+        <include name="${project.artifact}-dt.jar"/>
+      </fileset>
+    </copy>
+
+    <!-- Third party jars -->
+    <copy file="${jfreechart.jar}" todir="${build.home}/complib"/>
+    <copy file="${jcommon.jar}" todir="${build.home}/complib"/>
+    <copy file="${commons-logging.jar}" todir="${build.home}/complib"/>
+
+    <!-- Javadoc -->
+    <zip destfile="${build.home}/complib/${project.artifact}-doc.zip"
+      basedir="${build.home}/javadoc"/>
+
+    <!-- Source files -->
+    <zip destfile="${build.home}/complib/${project.artifact}-src.zip">
+      <fileset dir="${src.home}">
+        <include name="net/**"/>
+      </fileset>
+      <fileset dir="${design.src}"/>
+    </zip>
+
+    <!-- Build the complib itself -->
+    <delete file="${dist.home}/${project.artifact.version}.complib"/>
+    <jar jarfile="${dist.home}/${project.artifact.version}.complib"
+      basedir="${build.home}/complib"
+      manifest="${conf.dst}/manifest-complib.mf"/>
+  </target>
+
+  <target name="mk-src-dist" depends="prepare"
+    description="Create source distribution jar">
+
+    <copy todir="${build.home}/src-dist/${project.artifact.version}">
+      <fileset dir=".">
+        <include name="build.properties"/>
+        <include name="build.xml"/>
+        <include name="conf/**"/>
+        <include name="designtime/**"/>
+        <include name="src/**"/>
+        <include name="webresources/**"/>
+      </fileset>
+    </copy>
+
+    <zip destfile="${dist.home}/${project.artifact.version}-src.zip"
+      basedir="${build.home}/src-dist"/>
+  </target>
+
+  <target name="all"
+    depends="clean, complib"
+    description="Clean and rebuild entire project"/>
+</project>

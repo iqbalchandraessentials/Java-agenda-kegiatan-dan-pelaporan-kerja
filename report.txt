@@ -1,0 +1,16 @@
+private void makePreview (String vName){
+        try {
+            String locFile = "src/report/";
+            String namaFile = locFile + vName + ".jasper";
+            HashMap parameter = new HashMap();
+            parameter.put("idguru", String.valueOf(txid.getText()));
+            File report_file = new File (namaFile);
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, conn);
+            JasperViewer.viewReport(jasperPrint, false );
+            JasperViewer.setDefaultLookAndFeelDecorated(true);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+
+}

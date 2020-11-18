@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The "META-INF." prefix is a workaround for a bug in Creator 2 -->
+<complibConfiguration
+  version="1.0"
+  resourceBundleBaseName="META-INF.ComplibBundle">
+  <identifier>
+    <uri>@taglib-uri@</uri>
+    <version>@version@</version>
+  </identifier>
+  <titleKey>JSChartTitleKey</titleKey>
+  <runtimePath>
+    <pathElement>@project-artifact@.jar</pathElement>
+    <pathElement>jfreechart-1.0.9.jar</pathElement>
+    <pathElement>jcommon-1.0.12.jar</pathElement>
+    <pathElement>commons-logging.jar</pathElement>
+  </runtimePath>
+  <designTimePath prependRuntimePath="true">
+    <pathElement>@project-artifact@-dt.jar</pathElement>
+  </designTimePath>
+  <javadocPath>
+    <pathElement>@project-artifact@-doc.zip</pathElement>
+  </javadocPath>
+  <sourcePath>
+    <pathElement>@project-artifact@-src.zip</pathElement>
+  </sourcePath>
+  <webResourcePath>
+    <pathElement>web-resources.zip</pathElement>
+  </webResourcePath>
+  <initialPalette>
+    <folder key="MainCategory">
+      <item className="net.sf.jschart.component.Chart"/>
+      <item className="net.sf.jschart.component.GenericDataset"/>
+      <item className="net.sf.jschart.component.CategoryDataset"/>
+      <item className="net.sf.jschart.component.PieDataset"/>
+      <item className="net.sf.jschart.component.XYDataset"/>
+    </folder>
+  </initialPalette>
+</complibConfiguration>

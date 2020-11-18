@@ -1,0 +1,6 @@
+# ResourceBundle for jschart complib
+#
+MainCategory=@title@
+
+#Complib Title 
+JSChartTitleKey=@title@ @version@

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f348d4c-4037-45a9-9659-ab013c52919c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="companyname" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kopsmall" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     schedule.`id_schedule` AS schedule_id_schedule,
+     schedule.`Date_act` AS schedule_Date_act,
+     schedule.`company_name` AS schedule_company_name,
+     schedule.`activity` AS schedule_activity,
+     schedule.`technician_name` AS schedule_technician_name,
+     schedule.`code_machine` AS schedule_code_machine,
+     schedule.`error_code` AS schedule_error_code,
+     schedule.`information` AS schedule_information,
+     client.`id_client` AS client_id_client,
+     client.`company_name` AS client_company_name,
+     client.`staff_name` AS client_staff_name,
+     client.`email` AS client_email,
+     client.`phone` AS client_phone,
+     client.`addres` AS client_addres
+FROM
+     `schedule` schedule,
+     `client` client
+WHERE 
+schedule.`company_name` = client.`company_name` AND schedule.`company_name` = $P{companyname}]]>
+	</queryString>
+	<field name="schedule_id_schedule" class="java.lang.String"/>
+	<field name="schedule_Date_act" class="java.lang.String"/>
+	<field name="schedule_company_name" class="java.lang.String"/>
+	<field name="schedule_activity" class="java.lang.String"/>
+	<field name="schedule_technician_name" class="java.lang.String"/>
+	<field name="schedule_code_machine" class="java.lang.String"/>
+	<field name="schedule_error_code" class="java.lang.String"/>
+	<field name="schedule_information" class="java.lang.String"/>
+	<field name="client_id_client" class="java.lang.String"/>
+	<field name="client_company_name" class="java.lang.String"/>
+	<field name="client_staff_name" class="java.lang.String"/>
+	<field name="client_email" class="java.lang.String"/>
+	<field name="client_phone" class="java.lang.String"/>
+	<field name="client_addres" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement uuid="b9d81e26-f59b-4070-bbaf-ea557c960ad9" x="21" y="17" width="38" height="39"/>
+				<imageExpression><![CDATA[$P{kopsmall}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="a4106684-4c41-4b32-bace-f45aaba10c3a" x="192" y="17" width="180" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SURAT JALAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="214" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="eb2535b2-9ab4-40da-b13f-008af70e06d4" x="21" y="14" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[name company	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8dcd5be0-4d0f-4e95-90bf-60523f7f0567" x="156" y="14" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{companyname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="08444c52-540e-44db-8b29-bd9ab4c016c8" x="156" y="55" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{client_addres}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d4654287-460f-470b-9309-44a49eac3c3b" x="21" y="55" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Address	:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

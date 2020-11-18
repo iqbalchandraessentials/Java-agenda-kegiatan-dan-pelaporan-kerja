@@ -1,0 +1,6 @@
+/* Style rules for Chart component */
+
+img.chart, img.chart:Link, img.chart:Visited, img.chart:Active, img.chart:Hover {
+    border-style : none;
+    text-decoration : none;
+}

@@ -1,0 +1,497 @@
+<?xml version="1.0"?>
+<!DOCTYPE taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/dtd//web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+
+
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>jschart</short-name>
+  <uri>http://net.sf.jschart/jschart</uri>
+
+  <tag>
+
+    <name>chart</name>
+    <tag-class>net.sf.jschart.taglib.ChartTag</tag-class>
+    <body-content>JSP</body-content>
+    <description><![CDATA[
+      Render a Chart.
+    ]]></description>
+
+    <attribute>
+      <name>alpha</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart Alpha
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>antialias</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Antialias
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>background</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart background color
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>binding</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+
+    <attribute>
+      <name>border</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart Border width
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>categoryToPieByRow</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Multiple Pie conversion from Category to Pie by row
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>chart3d</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Is 3D chart
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>colors</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart colors
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>converter</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        
+          Converter instance registered with this component.
+        
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>datasource</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Datasource. Must be PieDataset, CategoryDataset
+            or XYDataset derived objects
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>dateFormat</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart output Date Format
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>dateTick</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Date tick value
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>dateTickCount</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Date tick count
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>depth</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart Depth
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>domainNumberTick</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Domain Number tick value
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>gradient</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Gradient factor. If 100 no gradient
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>gradientType</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Gradient Type
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>height</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart Height
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        
+          The component identifier for this component.  This value must be
+          unique within the closest parent component that is a naming
+          container.
+        
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>includeZero</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart Include Zero axis value
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>intervalMarker</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart has Interval Marker
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>label</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart has labels
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>labelAngle</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Category label angle
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>labelFormat</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Label format
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>legend</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart has legend
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>legendLabelFormat</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Legend label format
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>legendPosition</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Legend position
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>limitPercent</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Pie Chart limit percent
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>limitPercentTitle</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Pie Chart limit percent title
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>orientation</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart orientation
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>outline</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart outline
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>periodAxisFormat</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Sets period axis format.
+                Use standard SimpleDateFormat letters separated by '|' for bands.
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>rangeNumberTick</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Range Number tick value
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>rendered</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        
+          Flag indicating whether or not this component should be
+          rendered (during Render Response Phase), or processed
+          on any subsequent form submit.
+        
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>startAngle</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Pie Chart starting angle
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>style</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        CSS style attribute.
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>styleClass</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        CSS "class" attribute.
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>subtitle</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart subtitle
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>title</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart title
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>tooltipFormat</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Tooltip format
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>tooltipXDate</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Is the X axis tooltip has date format?
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>tooltipYDate</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Is the Y axis tooltip has date format?
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>tooltips</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart has tooltips
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>type</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart type (bar,pie,line...)
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>useChartlet</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Use Chartlet servlet for image sending instead
+                of PhaseListener.
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        
+          The current value of this component.
+        
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>verticalDateTicks</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart has Vertical Date Ticks
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>visibleShapes</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart has Visible Shapes
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>width</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Chart Width
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>xlabel</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        X label
+      ]]></description>
+    </attribute>
+
+    <attribute>
+      <name>ylabel</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description><![CDATA[
+        Y label
+      ]]></description>
+    </attribute>
+
+  </tag>
+
+
+</taglib>
